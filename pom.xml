@@ -3,5 +3,10 @@
  
   <groupId>myWall</groupId>
   <artifactId>myWall</artifactId>
-  <version>0</version>
+  <version>0.0.1</version>
+  <properties> 
+    <maven.compiler.source>17</maven.compiler.source> 
+    <maven.compiler.target>17</maven.compiler.target>
+  </properties>
+  
 </project>
