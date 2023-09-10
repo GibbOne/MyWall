@@ -1,11 +1,9 @@
-package MyWall.UI;
+package myWall.UI;
 
-import java.awt.BorderLayout;
-import java.awt.EventQueue;
-import java.awt.Graphics;
-import java.awt.Image;
 import java.io.File;
 import java.io.IOException;
+
+import java.awt.*;
 
 import javax.imageio.ImageIO;
 import javax.swing.JFrame;
@@ -32,6 +30,8 @@ public class WallBoard extends JFrame {
 		});
 	}
 
+	private Image background;
+
 	/**
 	 * Create the frame.
 	 * @throws IOException 
@@ -43,16 +43,34 @@ public class WallBoard extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
 		setContentPane(contentPane);
-		background = ImageIO.read(new File("./assets/wallboard.png"));
+		background = ImageIO.read(new File("../resources/wallboard.png"));
 		setSize(background.getWidth(this), background.getHeight(this));
 	}
-
-	private Image background;
+	
+	private void DrawBall(Graphics2D g, Point point, int radius, Color color)
+	{
+		try 
+		{
+			g.drawImage(ImageIO.read(new File("thewall.jpeg")), 0, 0, null);
+		}
+		catch (IOException ex)
+		{
+		}
+		g.setColor(color);
+        g.fillOval(point.x - radius, point.y - radius, radius * 2, radius * 2);
+		
+	    float fractions[] = { 0.5f, 1.0f };
+        Color colors[] = { new Color(color.getRed(), color.getGreen(), color.getBlue(), 255), color };
+        RadialGradientPaint paint = new RadialGradientPaint(point, radius, fractions, colors);
+        g.setPaint(paint);
+        g.fillOval(point.x - radius, point.y - radius, radius * 2, radius * 2);
+	}
 	
 	@Override
 	public void paint(Graphics g)
 	{
 		super.paint(g);
 		g.drawImage(background, 0, 0, this);
+		DrawBall((Graphics2D)g, new Point(200, 100), 13, new Color(0, 255, 0, 0));
 	}
 }

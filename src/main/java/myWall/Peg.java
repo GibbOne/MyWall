@@ -1,4 +1,4 @@
-package MyWall;
+package myWall;
 
 public class Peg {
 
