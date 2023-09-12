@@ -43,7 +43,7 @@ public class WallBoard extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
 		setContentPane(contentPane);
-		background = ImageIO.read(new File("../resources/wallboard.png"));
+		background = ImageIO.read(new File("./target/classes/wallboard.png"));
 		setSize(background.getWidth(this), background.getHeight(this));
 	}
 	
