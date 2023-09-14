@@ -43,19 +43,13 @@ public class WallBoard extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
 		setContentPane(contentPane);
-		background = ImageIO.read(new File("./target/classes/wallboard.png"));
+		
+		background = ImageIO.read(new File("./src/main/resources/wallboard.png"));
 		setSize(background.getWidth(this), background.getHeight(this));
 	}
 	
 	private void DrawBall(Graphics2D g, Point point, int radius, Color color)
 	{
-		try 
-		{
-			g.drawImage(ImageIO.read(new File("thewall.jpeg")), 0, 0, null);
-		}
-		catch (IOException ex)
-		{
-		}
 		g.setColor(color);
         g.fillOval(point.x - radius, point.y - radius, radius * 2, radius * 2);
 		
