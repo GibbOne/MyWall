@@ -5,8 +5,8 @@
   <artifactId>myWall</artifactId>
   <version>0.0.1</version>
   <properties> 
-    <maven.compiler.source>17</maven.compiler.source> 
-    <maven.compiler.target>17</maven.compiler.target>
+    <maven.compiler.source>18</maven.compiler.source> 
+    <maven.compiler.target>18</maven.compiler.target>
   </properties>
 
   <dependencies>
@@ -15,6 +15,11 @@
       <artifactId>junit</artifactId>
       <version>4.11</version>
       <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.openjfx</groupId>
+      <artifactId>javafx-controls</artifactId>
+      <version>11</version>
     </dependency>
   </dependencies>
   
