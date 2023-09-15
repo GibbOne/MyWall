@@ -10,10 +10,6 @@ public class Ball {
 
     public Ball()
     {
-        Rectangle r = new Rectangle(2,2,4,4);
-        circle.setRadius(2.83);
-        Shape s = Shape.intersect(r, circle);
-        System.out.println(s.getBoundsInLocal().getCenterX() + " " + s.getBoundsInLocal().getCenterY());
         
     }
 }

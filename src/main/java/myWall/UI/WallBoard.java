@@ -48,8 +48,6 @@ public class WallBoard extends JFrame {
 		
 		background = ImageIO.read(new File("./src/main/resources/wallboard.png"));
 		setSize(background.getWidth(this), background.getHeight(this));
-
-		Ball b = new Ball();
 	}
 	
 	private void DrawBall(Graphics2D g, Point point, int radius, Color color)
