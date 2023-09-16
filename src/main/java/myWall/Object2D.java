@@ -1,6 +1,7 @@
 package myWall;
 
 import javafx.geometry.Bounds;
+import javafx.geometry.Point2D;
 import javafx.scene.shape.Shape;
 
 public class Object2D {
@@ -23,17 +24,16 @@ public class Object2D {
         return mass;
     }
 
-    public boolean collidesWith(Object2D other)
+    public Point2D getCollisionPointWith(Object2D other)
     {
         Bounds intersect = Shape.intersect(shape, other.getShape()).getBoundsInLocal();
         if (intersect.isEmpty())
         {
-            return false;
+            return null;
         }
         else
         {
-            //intersect.getCenterX()
-            return true;
+            return new Point2D(intersect.getCenterX(), intersect.getCenterY());
         }
     }
 }

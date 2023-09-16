@@ -16,7 +16,7 @@ public class Object2DTests {
         var o2 = new MockObject2D(new Circle(0, 0, 3), 2);
 
         // ACT and ASSERT
-        assertTrue(o1.collidesWith(o2) == false);
+        assertTrue(o1.getCollisionPointWith(o2) == null);
     }
 
 }
