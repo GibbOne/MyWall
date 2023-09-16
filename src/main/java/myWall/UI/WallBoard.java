@@ -1,43 +1,48 @@
 package myWall.UI;
 
-import java.io.File;
-import java.io.IOException;
+import javafx.application.Application;
+import javafx.scene.Scene;
+import javafx.scene.image.Image;
+import javafx.scene.layout.Background;
+import javafx.scene.layout.BackgroundImage;
+import javafx.scene.layout.BackgroundPosition;
+import javafx.scene.layout.BackgroundRepeat;
+import javafx.scene.layout.BackgroundSize;
+import javafx.scene.layout.Pane;
+import javafx.stage.Stage;
+import myWall.Game;
+import myWall.Main;
+import myWall.Object2D;
 
-import java.awt.*;
+public class WallBoard extends Application {
 
-import javax.imageio.ImageIO;
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
-
-import myWall.Ball;
-
-public class WallBoard extends JFrame {
-
-	private JPanel contentPane;
-
-	/**
+    /**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					WallBoard frame = new WallBoard();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
+	public static void launch(String[] args) {
+        Application.launch(args);
 	}
 
-	private Image background;
+	public void start(Stage stage) {
+		game = new Game();
+        Pane root = new Pane();
+		root.setBackground(new Background(new BackgroundImage(new Image(Main.class.getClassLoader().getResource("wallboard.png").toString()),
+        	BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT,
+          	new BackgroundSize(700, 1000, true, true, true, true))));
 
-	/**
-	 * Create the frame.
-	 * @throws IOException 
-	 */
+		for (Object2D o : game.getObjects()) {
+			root.getChildren().add(o.getShape());
+		}
+
+        Scene scene = new Scene(root, 700, 1000);
+        stage.setTitle("MyWall game");
+        stage.setScene(scene);
+        stage.show();
+    }
+		
+	private Game game;
+	/*
+
 	public WallBoard() throws IOException {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
@@ -69,4 +74,14 @@ public class WallBoard extends JFrame {
 		g.drawImage(background, 0, 0, this);
 		DrawBall((Graphics2D)g, new Point(200, 100), 13, new Color(0, 255, 0, 0));
 	}
+
+
+ 
+	private void DrawObjects(Game game, Graphics2D g)
+	{
+		for (Object2D object : game.getObjects()) {
+			g.draw(object.getShape());
+		}
+	}
+	*/
 }

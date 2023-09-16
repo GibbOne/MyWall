@@ -1,15 +1,24 @@
 package myWall;
 
+import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
-import javafx.scene.shape.Rectangle;
-import javafx.scene.shape.Shape;
 
-public class Ball {
+public class Ball extends Object2D{
 
-    Circle circle = new Circle();
+    Circle circle;
 
-    public Ball()
+    public Ball(World world, float x, float y, float radius, float mass) 
     {
-        
+        super(world, new Circle(x, y, radius), mass, 0.1f); 
+    }
+
+    public Circle getCircle()
+    {
+        return (Circle)getShape();
+    }
+
+    public void setColor(Color color)
+    {
+        circle.fillProperty().setValue(color);
     }
 }

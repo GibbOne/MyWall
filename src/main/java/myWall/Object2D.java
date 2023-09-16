@@ -5,13 +5,21 @@ import javafx.geometry.Point2D;
 import javafx.scene.shape.Shape;
 
 public class Object2D {
+    private World world;
     private Shape shape;
     private float mass;
+    private float elasticity;
 
-    protected Object2D(Shape shape, float mass)
+    protected Object2D(World world, Shape shape, float mass, float elasticity)
     {
         this.shape = shape;
         this.mass = mass;
+        this.elasticity = elasticity;
+    }
+
+    public World getWorld() 
+    {
+        return world;
     }
 
     public Shape getShape() 
@@ -22,6 +30,11 @@ public class Object2D {
     public float getMass() 
     {
         return mass;
+    }
+
+    public float getElasticity() 
+    {
+        return elasticity;
     }
 
     public Point2D getCollisionPointWith(Object2D other)
@@ -35,5 +48,11 @@ public class Object2D {
         {
             return new Point2D(intersect.getCenterX(), intersect.getCenterY());
         }
+    }
+
+    public void MoveOf(float deltaX, float deltaY)
+    {
+        shape.setTranslateX(deltaX);
+        shape.setTranslateY(deltaY);
     }
 }
