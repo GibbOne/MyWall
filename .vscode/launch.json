@@ -12,9 +12,9 @@
         },
         {
             "type": "java",
-            "name": "WallBoard",
+            "name": "Main",
             "request": "launch",
-            "mainClass": "myWall.UI.WallBoard",
+            "mainClass": "myWall.Main",
             "projectName": "myWall"
         }
     ]
