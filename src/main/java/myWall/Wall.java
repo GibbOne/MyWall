@@ -1,5 +1,6 @@
 package myWall;
 
+import javafx.scene.paint.Color;
 import javafx.scene.shape.LineTo;
 import javafx.scene.shape.MoveTo;
 import javafx.scene.shape.Path;
@@ -23,9 +24,9 @@ public class Wall extends Object2D
         
         setFixed(true);
 
-        world.addObject(new BallPipe(world,150, 0, 20, 30));
-        world.addObject(new Peg(world, 160, 75, 2));
-
+        world.addObject(new BallPipe(world,150, 0, 40, 30));
+        world.addObject(new Peg(world, 170, 75, 4));
+        world.addObject(new Ball(world, 170, 0, 18, 10, new Color(0, 1, 0, 1) ));
     }
 
 }
