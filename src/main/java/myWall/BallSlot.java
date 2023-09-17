@@ -18,6 +18,7 @@ public class BallSlot extends Object2D
                 new LineTo(xOfUpperLeftCorner + width, yOfUpperLeftCorner)
                 ), 
             Float.MAX_VALUE, 0);
+            setFixed(true);
             getShape().fillProperty().setValue(Color.RED); //TODO to remove
     }
 

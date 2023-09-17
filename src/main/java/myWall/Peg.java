@@ -8,6 +8,8 @@ public class Peg extends Object2D
 
     protected Peg(World world, float x, float y, float radius) {
         super(world, new Circle(x, y, radius), Float.MAX_VALUE, 0);
+        setFixed(true);
+        
         getShape().fillProperty().setValue(Color.RED); //TODO to remove
     }
 

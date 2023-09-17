@@ -17,6 +17,8 @@ public class BallPipe extends Object2D{
                 new LineTo(xOfUpperLeftCorner + width, yOfUpperLeftCorner)
                 ),
         Float.MAX_VALUE, 0);
+        setFixed(true);
+        
         //TODO Auto-generated constructor stub
 
         getShape().strokeProperty().setValue(Color.RED); //TODO to remove

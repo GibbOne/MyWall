@@ -9,12 +9,22 @@ public class Object2D {
     private Shape shape;
     private float mass;
     private float elasticity;
+    private boolean fixed = false;
 
     protected Object2D(World world, Shape shape, float mass, float elasticity)
     {
         this.shape = shape;
         this.mass = mass;
         this.elasticity = elasticity;
+    }
+
+    public boolean getFixed() 
+    {
+        return fixed;
+    }
+    public void setFixed(boolean value) 
+    {
+        this.fixed = value;
     }
 
     public World getWorld() 

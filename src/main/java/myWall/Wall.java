@@ -21,8 +21,11 @@ public class Wall extends Object2D
                 ), 
             Float.MAX_VALUE, 0);
         
+        setFixed(true);
+
         world.addObject(new BallPipe(world,150, 0, 20, 30));
         world.addObject(new Peg(world, 160, 75, 2));
+
     }
 
 }
