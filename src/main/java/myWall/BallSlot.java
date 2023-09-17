@@ -19,7 +19,7 @@ public class BallSlot extends Object2D
                 ), 
             Float.MAX_VALUE, 0);
             setFixed(true);
-            getShape().fillProperty().setValue(Color.RED); //TODO to remove
+            getShape().setFill(Color.RED); //TODO to remove
     }
 
 }

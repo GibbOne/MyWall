@@ -21,7 +21,7 @@ public class BallPipe extends Object2D{
         
         //TODO Auto-generated constructor stub
 
-        getShape().strokeProperty().setValue(Color.RED); //TODO to remove
+        getShape().setStroke(Color.RED); //TODO to remove
     }
 
 }

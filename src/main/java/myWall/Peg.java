@@ -10,7 +10,7 @@ public class Peg extends Object2D
         super(world, new Circle(x, y, radius), Float.MAX_VALUE, 0);
         setFixed(true);
         
-        getShape().fillProperty().setValue(Color.RED); //TODO to remove
+        getShape().setFill(Color.RED); //TODO to remove
     }
 
 }
