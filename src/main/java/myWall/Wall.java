@@ -24,9 +24,9 @@ public class Wall extends Object2D
         
         setFixed(true);
 
-        world.addObject(new BallPipe(world,150, 0, 40, 30));
-        world.addObject(new Peg(world, 170, 75, 4));
-        world.addObject(new Ball(world, 170, 0, 18, 10, new Color(0, 1, 0, 1) ));
+        world.addObject(new BallPipe(world,248, 130, 36, 30));
+        world.addObject(new Peg(world, 266, 230, 4));
+        world.addObject(new Ball(world, 266, 130, 17, 10, new Color(0, 1, 0, 1) ));
     }
 
 }
