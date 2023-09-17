@@ -10,12 +10,19 @@ public class Object2D {
     private float mass;
     private float elasticity;
     private boolean fixed = false;
+    private Vector2D speed;
 
     protected Object2D(World world, Shape shape, float mass, float elasticity)
     {
         this.shape = shape;
         this.mass = mass;
         this.elasticity = elasticity;
+        this.speed = new Vector2D(0, 0);
+    }
+
+    public Vector2D getSpeed() 
+    {
+        return speed;
     }
 
     public boolean getFixed() 
