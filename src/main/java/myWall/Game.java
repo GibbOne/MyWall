@@ -14,4 +14,8 @@ public class Game {
     {
         return world.getObjects();
     }
+
+	public void update() {
+		world.update();
+	}
 }

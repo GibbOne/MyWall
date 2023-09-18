@@ -28,5 +28,4 @@ public class Wall extends Object2D
         world.addObject(new Peg(world, 266, 230, 4));
         world.addObject(new Ball(world, 266, 130, 17, 10, new Color(0, 1, 0, 1) ));
     }
-
 }

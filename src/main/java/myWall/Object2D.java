@@ -67,9 +67,9 @@ public class Object2D {
         }
     }
 
-    public void MoveOf(float deltaX, float deltaY)
+    public void moveOf(double deltaX, double deltaY)
     {
-        shape.setTranslateX(deltaX);
-        shape.setTranslateY(deltaY);
+        shape.setLayoutX(shape.getLayoutX() + deltaX);
+        shape.setLayoutY(shape.getLayoutY() + deltaY);
     }
 }

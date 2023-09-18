@@ -1,5 +1,6 @@
 package myWall.UI;
 
+import javafx.animation.AnimationTimer;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
@@ -15,6 +16,8 @@ import myWall.Main;
 import myWall.Object2D;
 
 public class WallBoard extends Application {
+
+	private AnimationTimer tmr;
 
     /**
 	 * Launch the application.
@@ -38,8 +41,16 @@ public class WallBoard extends Application {
         stage.setTitle("MyWall game");
         stage.setScene(scene);
         stage.show();
+
+		tmr = new TimerMethod(game);
+		tmr.start();
     }
 		
+	@Override
+	public void stop(){
+		System.out.println("Stage is closing");
+	}
+
 	private Game game;
 	/*
 
@@ -84,4 +95,19 @@ public class WallBoard extends Application {
 		}
 	}
 	*/
+}
+
+class TimerMethod extends AnimationTimer {
+	private Game game;
+
+	public TimerMethod(Game game) {
+		this.game = game;
+	}
+
+	//define the handle method
+	@Override
+	public void handle(long now) {
+		//call the method
+		game.update();
+	}
 }
