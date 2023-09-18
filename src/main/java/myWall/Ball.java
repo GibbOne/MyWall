@@ -10,7 +10,7 @@ public class Ball extends Object2D{
 
     public Ball(World world, float xCenter, float yCenter, float radius, float mass, Color color) 
     {
-        super(world, new Circle(xCenter, yCenter, radius), mass, 0.1f); 
+        super(world, new Circle(0, 0, radius), new Vector2D(xCenter, yCenter), mass, 0.5f); 
         setColor(color);
     }
 
