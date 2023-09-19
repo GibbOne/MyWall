@@ -82,7 +82,7 @@ public class Game {
         {
             world.addObject(new Peg(world, j*45 - 5, 778, 4));
         }
-        world.addObject(new Ball(world, 266, 130, 17, 10, new Color(0, 1, 0, 1) ));
+        //world.addObject(new Ball(world, 266, 130, 17, 10, new Color(0, 1, 0, 1) ));
     }
 
     public List<Object2D>  getObjects()
@@ -93,4 +93,11 @@ public class Game {
 	public void update() {
 		world.update();
 	}
+
+    public Ball AddBallOnPipe(int pipeNumber)
+    {
+        var ball = new Ball(world, 3+(pipeNumber + 4)*44, 132, 17, 10, new Color(0, 1, 0, 1));
+        world.addObject(ball);
+        return ball;
+    }
 }
