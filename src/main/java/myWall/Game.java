@@ -13,7 +13,7 @@ public class Game {
         for (int i = 0; i < 125; i++)
         {
             world.addObject(new Peg(world, 0, i*8, 4));
-            world.addObject(new Peg(world, 700, i*8, 4));
+            world.addObject(new Peg(world, 710, i*8, 4));
         }
         // buttom slots 
         for (int i = 0; i < 24; i++)
@@ -96,7 +96,8 @@ public class Game {
 
     public Ball AddBallOnPipe(int pipeNumber)
     {
-        var ball = new Ball(world, 3+(pipeNumber + 4)*44, 132, 17, 10, new Color(0, 1, 0, 1));
+        int offset = (pipeNumber == 4 ? 1 : 0);
+        var ball = new Ball(world, offset + 3+(pipeNumber + 4)*44, 132, 17, 10, new Color(0, 1, 0, 1));
         world.addObject(ball);
         return ball;
     }
