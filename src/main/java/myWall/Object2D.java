@@ -1,7 +1,6 @@
 package myWall;
 
 import javafx.geometry.Bounds;
-import javafx.geometry.Point2D;
 import javafx.scene.shape.Shape;
 
 public class Object2D {

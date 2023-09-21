@@ -25,6 +25,7 @@ import myWall.Object2D;
 public class WallBoard extends Application {
 
 	private AnimationTimer tmr;
+	private Color ballColor = new Color(0, 1, 0, 1);
 
     /**
 	 * Launch the application.
@@ -52,27 +53,34 @@ public class WallBoard extends Application {
 		scene.addEventFilter(KeyEvent.KEY_PRESSED, new EventHandler<KeyEvent>() {
 			public void handle(KeyEvent ke) {
 				if (ke.getCode() == KeyCode.NUMPAD1) {
-					root.getChildren().add(game.AddBallOnPipe(1).getShape());
+					root.getChildren().add(game.AddBallOnPipe(1, ballColor).getShape());
 					ke.consume(); // <-- stops passing the event to next node
 				} else if (ke.getCode() == KeyCode.NUMPAD2) {
-					root.getChildren().add(game.AddBallOnPipe(2).getShape());
+					root.getChildren().add(game.AddBallOnPipe(2, ballColor).getShape());
 					ke.consume(); // <-- stops passing the event to next node
 				} else 	if (ke.getCode() == KeyCode.NUMPAD3) {
-					root.getChildren().add(game.AddBallOnPipe(3).getShape());
+					root.getChildren().add(game.AddBallOnPipe(3, ballColor).getShape());
 					ke.consume(); // <-- stops passing the event to next node
 				} else if (ke.getCode() == KeyCode.NUMPAD4) {
-					root.getChildren().add(game.AddBallOnPipe(4).getShape());
+					root.getChildren().add(game.AddBallOnPipe(4, ballColor).getShape());
 					ke.consume(); // <-- stops passing the event to next node
 				} else if (ke.getCode() == KeyCode.NUMPAD5) {
-					root.getChildren().add(game.AddBallOnPipe(5).getShape());
+					root.getChildren().add(game.AddBallOnPipe(5, ballColor).getShape());
 					ke.consume(); // <-- stops passing the event to next node
 				} else 	if (ke.getCode() == KeyCode.NUMPAD6) {
-					root.getChildren().add(game.AddBallOnPipe(6).getShape());
+					root.getChildren().add(game.AddBallOnPipe(6, ballColor).getShape());
 					ke.consume(); // <-- stops passing the event to next node
 				} else 	if (ke.getCode() == KeyCode.NUMPAD7) {
-					root.getChildren().add(game.AddBallOnPipe(7).getShape());
+					root.getChildren().add(game.AddBallOnPipe(7, ballColor).getShape());
 					ke.consume(); // <-- stops passing the event to next node
-				}  			}
+				} else 	if (ke.getCode() == KeyCode.R) {
+					ballColor = new Color(1,0,0, 1);
+					ke.consume(); // <-- stops passing the event to next node
+				} else 	if (ke.getCode() == KeyCode.G) {
+					ballColor = new Color(0,1,0, 1);
+					ke.consume(); // <-- stops passing the event to next node
+				}  			
+			}
 		});
         stage.show();
 

@@ -94,10 +94,10 @@ public class Game {
 		world.update();
 	}
 
-    public Ball AddBallOnPipe(int pipeNumber)
+    public Ball AddBallOnPipe(int pipeNumber, Color color)
     {
         int offset = (pipeNumber == 4 ? 1 : 0);
-        var ball = new Ball(world, offset + 3+(pipeNumber + 4)*44, 132, 17, 10, new Color(0, 1, 0, 1));
+        var ball = new Ball(world, offset + 3+(pipeNumber + 4)*44, 132, 17, 10, color);
         world.addObject(ball);
         return ball;
     }
