@@ -9,7 +9,7 @@ import myWall.Object2D;
 import myWall.Vector2D;
 import myWall.World;
 
-public class Object2DTests {
+public class Object2DTest {
     
     @Test 
     public void ItShouldNotCollides() {
