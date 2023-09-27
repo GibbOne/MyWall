@@ -92,6 +92,7 @@ public class Game {
 
 	public void update() {
 		world.update();
+        ComputeBallsPerSlot();
 	}
 
     public Ball AddBallOnPipe(int pipeNumber, Color color)
@@ -101,4 +102,56 @@ public class Game {
         world.addObject(ball);
         return ball;
     }
+
+    /* 
+    protected ArrayList<BallOnSlotEventListener> listenerList = new ArrayList<BallOnSlotEventListener>();
+
+    public void addMyEventListener(BallOnSlotEventListener listener) {
+        listenerList.add(listener);
+    }
+    public void removeMyEventListener(BallOnSlotEventListener listener) {
+        listenerList.remove(listener);
+    }
+    */
+    private int[] ballsPerSlot = new int[15];
+
+    private void ComputeBallsPerSlot()
+    {
+        for (int i = 0; i < ballsPerSlot.length; i++)
+            ballsPerSlot[i] = 0;
+
+        for (Object2D b: world.objects)
+        {
+            if (b instanceof Ball && b.getPosition().y > 820)
+            {
+                int index = (int)(b.getPosition().x / 47);
+                if (((Ball)b).getColor().equals(new Color(0,1,0,1)))
+                    ballsPerSlot[index]++;
+                else
+                    ballsPerSlot[index]--;
+            }
+        }
+    }
+
+    public int GetSlotsCount()
+    {
+        return ballsPerSlot.length;
+    }
+
+    public int GetBallsInSlot(int index)
+    {
+        return ballsPerSlot[index];
+    }
 }
+
+/* 
+class BallOnSlotEvent extends EventObject {
+  public BallOnSlotEvent(Game source) {
+    super(source);
+  }
+}
+
+interface BallOnSlotEventListener extends EventListener {
+  public void myEventOccurred(BallOnSlotEvent evt);
+}
+*/
