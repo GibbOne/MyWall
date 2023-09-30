@@ -125,10 +125,13 @@ public class Game {
             if (b instanceof Ball && b.getPosition().y > 820)
             {
                 int index = (int)(b.getPosition().x / 47);
-                if (((Ball)b).getColor().equals(new Color(0,1,0,1)))
-                    ballsPerSlot[index]++;
-                else
-                    ballsPerSlot[index]--;
+                if (index > -1 && index < ballsPerSlot.length)
+                {
+                    if (((Ball)b).getColor().equals(new Color(0,1,0,1)))
+                        ballsPerSlot[index]++;
+                    else
+                        ballsPerSlot[index]--;
+                }
             }
         }
     }
