@@ -10,24 +10,16 @@ public class Game {
     public Game() 
     {
         // left and right border
-        for (int i = 0; i < 125; i++)
-        {
-            world.addObject(new Peg(world, 0, i*8, 4));
-            world.addObject(new Peg(world, 710, i*8, 4));
-        }
+        world.addObject(new Wall(world, -6, 0, 10, 1000));
+        world.addObject(new Wall(world, 710, 0, 10, 1000));
+
         // buttom slots 
-        for (int i = 0; i < 24; i++)
+        for (int i = 1; i < 17; i++)
         {
-            for (int j = 1; j < 17; j++)
-            {
-                world.addObject(new Peg(world, j*47, 820 + i*8, 4));
-            }
+            world.addObject(new Wall(world, i*47, 820, 4, 190));
         }
         // buttom border
-        for (int j = 1; j < 17; j++)
-        {
-            world.addObject(new Peg(world, j*47 - 23, 1000, 4));
-        }
+        world.addObject(new Wall(world, 0, 1000, 710, 40));
 
         // inner pegs
         for (int j = 4; j < 13; j++)
@@ -82,7 +74,6 @@ public class Game {
         {
             world.addObject(new Peg(world, j*45 - 5, 778, 4));
         }
-        //world.addObject(new Ball(world, 266, 130, 17, 10, new Color(0, 1, 0, 1) ));
     }
 
     public List<Object2D>  getObjects()

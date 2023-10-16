@@ -68,34 +68,42 @@ public class World {
 
 	private void resolveCollision(Object2D obj1, Object2D obj2, Bounds intersect)
 	{
-		// get the mtd
-		Vector2D mtd = Vector2D.subtract(obj1.getPosition(), obj2.getPosition());
+		var collisionPoint = new Vector2D(intersect.getCenterX(), intersect.getCenterY());
+		var collisionOverlap = Math.min(intersect.getHeight(), intersect.getWidth());
+
+		// get the mtd (Minimum Translation Distance vector)
+		Vector2D mtd1 = Vector2D.subtract(obj1.getPosition(), collisionPoint);
 		// minimum translation distance to push balls apart after intersecting
-		mtd.multiply(Math.min(intersect.getHeight(), intersect.getWidth()) / mtd.getLength() ); 
-		
+		mtd1.multiply(collisionOverlap / mtd1.getLength() ); 
+
+		// get the mtd (Minimum Translation Distance vector)
+		Vector2D mtd2 = Vector2D.subtract(collisionPoint, obj2.getPosition());
+		mtd2.multiply(collisionOverlap / mtd2.getLength() ); 
+
 		// resolve intersection --
 		// inverse mass quantities
 		float im1 = 1 / obj1.getMass(); 
 		float im2 = 1 / obj2.getMass();
 
 		// push-pull them apart based off their mass
-		obj1.setPosition(obj1.getPosition().getAdded(mtd.getMultiplied(im1 / (im1 + im2))));
-		obj2.setPosition(obj2.getPosition().getSubtracted(mtd.getMultiplied(im2 / (im1 + im2))));
+		obj1.setPosition(obj1.getPosition().getAdded(mtd1.getMultiplied(im1 / (im1 + im2))));
+		obj2.setPosition(obj2.getPosition().getSubtracted(mtd2.getMultiplied(im2 / (im1 + im2))));
 
 		// impact speed
 		Vector2D v = (obj1.getSpeed().getSubtracted(obj2.getSpeed()));
-		double vn = v.dot(mtd.getNormalized());
+		double vn = v.dot(mtd1.getNormalized()); //TODO
 
 		// sphere intersecting but moving away from each other already
 		if (vn > 0.0f) return;
 
 		// collision impulse
 		double i = (-(1.0f + obj1.getElasticity() + obj2.getElasticity()) * vn) / (im1 + im2);
-		Vector2D impulse = mtd.getNormalized().getMultiplied(i);
+		Vector2D impulse1 = mtd1.getNormalized().getMultiplied(i);
+		Vector2D impulse2 = mtd2.getNormalized().getMultiplied(i);
 
 		// change in momentum
-		obj1.setSpeed(obj1.getSpeed().getAdded(impulse.getMultiplied(im1)));
-		obj2.setSpeed(obj2.getSpeed().getSubtracted(impulse.getMultiplied(im2)));
+		obj1.setSpeed(obj1.getSpeed().getAdded(impulse1.getMultiplied(im1)));
+		obj2.setSpeed(obj2.getSpeed().getSubtracted(impulse2.getMultiplied(im2)));
 
 	}
 }
