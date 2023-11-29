@@ -159,7 +159,7 @@ public class WallBoard extends Application {
 		else if (sum < 0)
 			resultLabel.setTextFill(Color.RED);
 		else
-			resultLabel.setTextFill(Color.GREEN);
+			resultLabel.setTextFill(Color.LIGHTGREEN);
 	}
 }
 
